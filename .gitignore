@@ -43,9 +43,6 @@ nbproject/private/
 .idea
 *.iml
 
-# Web Driver
-drivers/
-
 # Debug Files
 *.txt
 *.html

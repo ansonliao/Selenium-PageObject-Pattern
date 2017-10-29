@@ -16,6 +16,18 @@ public class PageUtils {
         wait.until(d -> ((JavascriptExecutor) d)
                 .executeScript("return document.readyState")
                 .equals("complete"));
+    }
 
+    public synchronized static boolean verifyTextPresented(
+            WebDriver driver, String value) {
+        return getPageSource(driver).contains(value);
+    }
+
+    public synchronized static String getPageSource(WebDriver driver) {
+        return driver.getPageSource();
+    }
+
+    public synchronized static String getPageTitle(WebDriver driver) {
+        return driver.getTitle();
     }
 }

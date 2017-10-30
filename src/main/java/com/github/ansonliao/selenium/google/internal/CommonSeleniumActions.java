@@ -12,11 +12,15 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import ru.yandex.qatools.htmlelements.element.TypifiedElement;
 
+import java.awt.*;
+import java.awt.event.KeyEvent;
+
 public class CommonSeleniumActions {
-    protected static Logger logger = Logger.getLogger(com.github.ansonliao.selenium.internal.CommonSeleniumAction.class);
+    protected static Logger logger = Logger.getLogger(CommonSeleniumActions.class);
     private WebDriver driver;
     private String pageName;
     private Actions action;
+    private Robot robot;
     private WebDriverWait wait;
 
     public CommonSeleniumActions(WebDriver driver) {
@@ -31,30 +35,63 @@ public class CommonSeleniumActions {
     public void click(TypifiedElement element) {
         element.getWrappedElement().click();
         Sleep.byMillisecondWithNoLog(200);
-        ExtentTestManager.getExtentTest().log(Status.INFO, String.format("%s: Click", this.generateExtentTestLogMsgPrefix(this.getPageName(), element.getName())));
+        ExtentTestManager.getExtentTest().log(
+                Status.INFO,
+                String.format(
+                        "%s: Click",
+                        this.generateExtentTestLogMsgPrefix(
+                                this.getPageName(), element.getName())));
     }
 
     public void type(TypifiedElement element, String value) {
         element.getWrappedElement().sendKeys(new CharSequence[]{value});
         Sleep.byMillisecondWithNoLog(200);
-        ExtentTestManager.getExtentTest().log(Status.INFO, String.format("%s: Type text: %s", this.generateExtentTestLogMsgPrefix(this.getPageName(), element.getName()), value));
+        ExtentTestManager.getExtentTest().log(
+                Status.INFO,
+                String.format(
+                        "%s: Type text: %s",
+                        this.generateExtentTestLogMsgPrefix(this.getPageName(),
+                                element.getName()), value));
     }
 
     public void clearText(TypifiedElement element) {
         element.getWrappedElement().clear();
-        ExtentTestManager.getExtentTest().log(Status.INFO, String.format("%s: Clear Text", this.generateExtentTestLogMsgPrefix(this.getPageName(), element.getName())));
+        ExtentTestManager.getExtentTest().log(
+                Status.INFO,
+                String.format(
+                        "%s: Clear Text",
+                        this.generateExtentTestLogMsgPrefix(
+                                this.getPageName(), element.getName())));
+    }
+
+    public void pressESC() {
+        try {
+            robot = new Robot();
+        } catch (AWTException e) {
+            e.printStackTrace();
+        }
+
+        robot.keyPress(KeyEvent.VK_ESCAPE);
+        robot.keyRelease(KeyEvent.VK_ESCAPE);
+        ExtentTestManager.getExtentTest().log(
+                Status.INFO,
+                String.format("Press ESC key."));
     }
 
     public WebDriver openUrl(String url) {
         this.driver.get(url);
-        ExtentTestManager.getExtentTest().log(Status.INFO, this.withBoldHTML("Test Start"));
-        ExtentTestManager.getExtentTest().log(Status.INFO, this.withBoldHTML("Open URL: ") + url);
+        ExtentTestManager.getExtentTest()
+                .log(Status.INFO, this.withBoldHTML("Test Start"));
+        ExtentTestManager.getExtentTest()
+                .log(Status.INFO, this.withBoldHTML("Open URL: ") + url);
         return this.driver;
     }
 
     public String getPageName() {
-        if (this.pageName == null && this.getClass().isAnnotationPresent(PageName.class)) {
-            this.pageName = ((PageName)this.getClass().getAnnotation(PageName.class)).value().trim();
+        if (this.pageName == null
+                && this.getClass().isAnnotationPresent(PageName.class)) {
+            this.pageName = ((PageName) this.getClass().getAnnotation(PageName.class))
+                    .value().trim();
         }
 
         return this.pageName;
@@ -86,7 +123,9 @@ public class CommonSeleniumActions {
                 return "[Page: " + pageName.trim() + "] ";
             }
         } else {
-            return elementName != null && !elementName.trim().isEmpty() ? "[Element: " + elementName + "] " : "";
+            return elementName != null && !elementName.trim().isEmpty()
+                    ? "[Element: " + elementName + "] "
+                    : "";
         }
     }
 }

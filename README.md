@@ -1,5 +1,13 @@
 # Selenium-PageObject-Pattern
 
+## Pre-Condition
+Browsers:
+
+- `Chrome`
+- `Firefox` 
+
+were installed.
+
 ## Run
 Run the test by command
 

@@ -10,9 +10,6 @@ public class MyTestRunner {
 
     @Test
     public void run() {
-        DefaultSettingUtils.set();
-        XmlSuite xmlSuite = XmlSuiteBuilder.build();
-        System.out.println(xmlSuite.toXml());
         TestNGRunner.Run();
     }
 }

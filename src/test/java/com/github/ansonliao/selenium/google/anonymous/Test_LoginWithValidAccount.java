@@ -10,16 +10,17 @@ import com.github.ansonliao.selenium.google.utils.CredentialUtils;
 import com.github.ansonliao.selenium.internal.UserBaseTest;
 import org.testng.annotations.Test;
 
+import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.containsString;
+import static org.testng.Assert.assertTrue;
 
+/**
+ * @author ansonliao
+ */
 @Chrome
 public class Test_LoginWithValidAccount extends UserBaseTest {
 
-    /**
-     * @author ansonliao
-     */
-    @Test
+    @Test(groups = {"@BVT", "Order"})
     @Firefox
     @Description("Login with valid account information should be passed")
     @URL("http://the-internet.herokuapp.com/login")
@@ -31,5 +32,14 @@ public class Test_LoginWithValidAccount extends UserBaseTest {
         SecurePage securePage = loginPage.clickLoginButton();
         assertThat(securePage.getDriver().getTitle().toLowerCase(),
                 containsString("internet"));
+    }
+
+    @Test(groups = {"@SMOKE"})
+    @Description("Demo for fail test case")
+    @URL("http://the-internet.herokuapp.com/login")
+    public void f2() {
+        openUrl(getUrl());
+        LoginPage loginPage = new LoginPage(getDriver());
+        assertTrue(false);
     }
 }

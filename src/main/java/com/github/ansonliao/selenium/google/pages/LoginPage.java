@@ -1,14 +1,14 @@
 package com.github.ansonliao.selenium.google.pages;
 
+import com.github.ansonliao.selenium.google.internal.CommonSeleniumActions;
 import com.github.ansonliao.selenium.google.objects.LoginPO;
 import com.github.ansonliao.selenium.google.utils.PageUtils;
-import com.github.ansonliao.selenium.internal.CommonSeleniumAction;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import ru.yandex.qatools.htmlelements.loader.decorator.HtmlElementDecorator;
 import ru.yandex.qatools.htmlelements.loader.decorator.HtmlElementLocatorFactory;
 
-public class LoginPage extends CommonSeleniumAction {
+public class LoginPage extends CommonSeleniumActions {
     LoginPO po = new LoginPO();
 
     public LoginPage(WebDriver driver) {

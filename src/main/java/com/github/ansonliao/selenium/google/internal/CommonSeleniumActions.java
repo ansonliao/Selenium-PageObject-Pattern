@@ -4,19 +4,20 @@ import com.aventstack.extentreports.Status;
 import com.github.ansonliao.selenium.annotations.PageName;
 import com.github.ansonliao.selenium.internal.interrupt.Sleep;
 import com.github.ansonliao.selenium.report.factory.ExtentTestManager;
-import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import ru.yandex.qatools.htmlelements.element.TypifiedElement;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
 
 public class CommonSeleniumActions {
-    protected static Logger logger = Logger.getLogger(CommonSeleniumActions.class);
+    protected static Logger logger = LoggerFactory.getLogger(CommonSeleniumActions.class);
     private WebDriver driver;
     private String pageName;
     private Actions action;

@@ -20,7 +20,7 @@ import static org.testng.Assert.assertTrue;
 @Chrome
 public class Test_LoginWithValidAccount extends UserBaseTest {
 
-    @Test(groups = {"@BVT", "Order"})
+    @Test(groups = {"@BVT"})
     @Firefox
     @Description("Login with valid account information should be passed")
     @URL("http://the-internet.herokuapp.com/login")
@@ -38,7 +38,6 @@ public class Test_LoginWithValidAccount extends UserBaseTest {
     @Description("Demo for fail test case")
     @URL("http://the-internet.herokuapp.com/login")
     public void f2() {
-        openUrl(getUrl());
         LoginPage loginPage = new LoginPage(getDriver());
         assertTrue(false);
     }

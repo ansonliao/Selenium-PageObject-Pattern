@@ -30,7 +30,7 @@
     <dependency>
       <groupId>com.github.ansonliao</groupId>
       <artifactId>Selenium-Extensions</artifactId>
-      <version>LATEST</version>
+      <version>2.2.2</version>
       <exclusions>
         <exclusion>
           <groupId>org.testng</groupId>

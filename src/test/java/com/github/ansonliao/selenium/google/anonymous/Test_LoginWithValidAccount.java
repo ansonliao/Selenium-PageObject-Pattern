@@ -4,10 +4,12 @@ import com.github.ansonliao.selenium.annotations.Description;
 import com.github.ansonliao.selenium.annotations.URL;
 import com.github.ansonliao.selenium.annotations.browser.Chrome;
 import com.github.ansonliao.selenium.annotations.browser.Firefox;
+import com.github.ansonliao.selenium.annotations.browser.PhantomJs;
 import com.github.ansonliao.selenium.google.pages.LoginPage;
 import com.github.ansonliao.selenium.google.pages.SecurePage;
 import com.github.ansonliao.selenium.google.utils.CredentialUtils;
 import com.github.ansonliao.selenium.internal.UserBaseTest;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import static org.hamcrest.CoreMatchers.containsString;
@@ -34,11 +36,22 @@ public class Test_LoginWithValidAccount extends UserBaseTest {
                 containsString("internet"));
     }
 
-    @Test(groups = {"@SMOKE"})
+    @Test(groups = {"@SMOKE"}, dataProvider = "test1")
+    @PhantomJs
     @Description("Demo for fail test case")
     @URL("http://the-internet.herokuapp.com/login")
-    public void f2() {
+    public void f2(String userName, String pwd) {
+        openUrl(getUrl());
         LoginPage loginPage = new LoginPage(getDriver());
+        loginPage.inputUserName(userName);
+        loginPage.inputPassword(pwd);
         assertTrue(false);
+    }
+
+    @DataProvider(name = "test1")
+    public Object[][] userName() {
+        return new Object[][] {
+                {"abc", "123"},
+                {"efg", "456"}};
     }
 }

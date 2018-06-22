@@ -2,7 +2,7 @@ package com.github.ansonliao.selenium.google.internal;
 
 import com.aventstack.extentreports.Status;
 import com.github.ansonliao.selenium.annotations.PageName;
-import com.github.ansonliao.selenium.internal.interrupt.Sleep;
+import com.github.ansonliao.selenium.google.Interrupt.Pause;
 import com.github.ansonliao.selenium.report.factory.ExtentTestManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -13,7 +13,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ru.yandex.qatools.htmlelements.element.TypifiedElement;
 
-import java.awt.*;
+import java.awt.AWTException;
+import java.awt.Robot;
 import java.awt.event.KeyEvent;
 
 public class CommonSeleniumActions {
@@ -35,7 +36,7 @@ public class CommonSeleniumActions {
 
     public void click(TypifiedElement element) {
         element.getWrappedElement().click();
-        Sleep.byMillisecondWithNoLog(200);
+        Pause.byMillisecondWithNoLog(200);
         ExtentTestManager.getExtentTest().log(
                 Status.INFO,
                 String.format(
@@ -46,7 +47,7 @@ public class CommonSeleniumActions {
 
     public void type(TypifiedElement element, String value) {
         element.getWrappedElement().sendKeys(new CharSequence[]{value});
-        Sleep.byMillisecondWithNoLog(200);
+        Pause.byMillisecondWithNoLog(200);
         ExtentTestManager.getExtentTest().log(
                 Status.INFO,
                 String.format(

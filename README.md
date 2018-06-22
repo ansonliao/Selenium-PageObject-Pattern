@@ -21,5 +21,6 @@ Test will
 2. Please locate the screenshot from `target/screenshots` if any test case failed, and the screenshot
 will be attached in the HTML testing report, it means that no need to check the screenshot from `target/screenshots` specially.
 3. Test step is logged in details
-4. Test group in HTML testing report
-5. Test script author in HTML testing report
+4. Test group in the HTML testing report
+5. Test script author in the HTML testing report
+6. Test case's description logged in the HTML testing report

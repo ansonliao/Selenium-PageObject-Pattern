@@ -20,13 +20,14 @@ import static org.testng.Assert.assertTrue;
  * @author ansonliao
  */
 @Chrome
+@Description("Test login page function")
 public class Test_LoginWithValidAccount {
 
     @Test(groups = {"@BVT"})
     @Firefox
     @URL("http://the-internet.herokuapp.com/login")
     @Description("Login with valid account information should be passed")
-    public void f1() {
+    public void loginWithCorrectLoginInfo() {
         LoginPage loginPage = new LoginPage(getDriver());
         loginPage.inputUserName(CredentialUtils.getUserName());
         loginPage.inputPassword(CredentialUtils.getPassword());
@@ -39,7 +40,7 @@ public class Test_LoginWithValidAccount {
     @PhantomJs
     @URL("http://the-internet.herokuapp.com/login")
     @Description("Demo for fail test case")
-    public void f2(String userName, String pwd) {
+    public void loginWithWrongLoginInfo(String userName, String pwd) {
         LoginPage loginPage = new LoginPage(getDriver());
         loginPage.inputUserName(userName);
         loginPage.inputPassword(pwd);

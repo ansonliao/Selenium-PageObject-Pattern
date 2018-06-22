@@ -1,5 +1,6 @@
 package com.github.ansonliao.selenium.google.pages;
 
+import com.github.ansonliao.selenium.annotations.PageName;
 import com.github.ansonliao.selenium.google.internal.CommonSeleniumActions;
 import com.github.ansonliao.selenium.google.objects.LoginPO;
 import com.github.ansonliao.selenium.google.utils.PageUtils;
@@ -8,6 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 import ru.yandex.qatools.htmlelements.loader.decorator.HtmlElementDecorator;
 import ru.yandex.qatools.htmlelements.loader.decorator.HtmlElementLocatorFactory;
 
+@PageName("Login Page")
 public class LoginPage extends CommonSeleniumActions {
     LoginPO po = new LoginPO();
 

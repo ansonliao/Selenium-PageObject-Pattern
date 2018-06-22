@@ -2,11 +2,8 @@
 
 ## Pre-Condition
 Browsers:
-
-- `Chrome`
-- `Firefox` 
-
-were installed.
+Java version >= 8.0
+Maven version >= 3.5
 
 ## Run
 Run the test by command
@@ -15,4 +12,6 @@ Run the test by command
 mvn clean test -Dtest=MyTestRunner
 ```
 
-Test will be run across `Chrome` and `Firefox`.
+Test will
+1. run across `Chrome` , `Firefox`, and `PhantomJs`
+2. download `chromddriver`, `geckodriver`, `phantomjsdriver` automatically

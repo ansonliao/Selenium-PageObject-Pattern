@@ -1,9 +1,8 @@
 # Selenium-PageObject-Pattern
 
 ## Pre-Condition
-Browsers:
-Java version >= 8.0
-Maven version >= 3.5
+- Java version >= 8.0
+- Maven version >= 3.5
 
 ## Run
 Run the test by command

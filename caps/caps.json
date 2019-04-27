@@ -1,0 +1,12 @@
+{
+  "chrome": {
+    "caps": {
+
+    },
+    "cli_args": [
+      "start-maximized",
+      "--headless",
+      "--disable-gpu"
+    ]
+  }
+}

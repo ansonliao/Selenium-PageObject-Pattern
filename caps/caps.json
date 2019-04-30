@@ -1,12 +1,18 @@
 {
   "chrome": {
     "caps": {
-
+      "browserName": "chrome"
     },
     "cli_args": [
       "start-maximized",
       "--headless",
       "--disable-gpu"
+    ]
+  },
+  "firefox": {
+    "cli_args": [
+      "--headless",
+      "--private"
     ]
   }
 }

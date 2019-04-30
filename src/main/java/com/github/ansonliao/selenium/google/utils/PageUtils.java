@@ -6,7 +6,6 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.FluentWait;
 
 import java.time.Duration;
-import java.util.concurrent.TimeUnit;
 
 public class PageUtils {
 
@@ -14,14 +13,13 @@ public class PageUtils {
         FluentWait wait = new FluentWait(driver)
                 .pollingEvery(Duration.ofMillis(500))
                 .withTimeout(Duration.ofSeconds(10));
-        ExpectedCondition<Boolean> pageLoadCondition = new
-                ExpectedCondition<Boolean>() {
-                    public Boolean apply(WebDriver driver) {
-                        return ((JavascriptExecutor) driver)
-                                .executeScript("return document.readyState")
-                                .equals("complete");
-                    }
-                };
+        ExpectedCondition<Boolean> pageLoadCondition = new ExpectedCondition<Boolean>() {
+            public Boolean apply(WebDriver driver) {
+                return ((JavascriptExecutor) driver)
+                        .executeScript("return document.readyState")
+                        .equals("complete");
+            }
+        };
 
         wait.until(pageLoadCondition);
         // wait.until(d -> ((JavascriptExecutor) d).executeScript(js).equals(result));

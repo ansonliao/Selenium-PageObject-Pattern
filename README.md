@@ -11,7 +11,7 @@ Run the test by command
 > version is updated, so need to add ChromeDriver specified version, for example version `74.0.3729.6`
 
 ```bash
-mvn clean test -Dtest=MyTestRunner -Dwdm.chromeDriverVersion=74.0.3729.6
+./mvnw clean test -Dtest=MyTestRunner -Dwdm.chromeDriverVersion=74.0.3729.6
 ```
 
 Test will
@@ -29,6 +29,14 @@ will be attached in the HTML testing report, it means that no need to check the 
 6. Test script author in the HTML testing report
 7. Test case's description logged in the HTML testing report
 
+
+## How to generate the specified Maven version's wrapper
+
+Run the command line as below, and place the Maven version number you want:
+
+```bash
+mvn -N io.takari:maven:0.7.6:wrapper -Dmaven=[MAVEN_VERSION_NUMBER]
+```
 
 ## TODO
 Log the testing step with AOP, and the library is [AspectJ](https://www.eclipse.org/aspectj/).

@@ -1,5 +1,6 @@
 package com.github.ansonliao.selenium.google.anonymous;
 
+import com.automation.remarks.video.annotations.Video;
 import com.github.ansonliao.selenium.annotations.Description;
 import com.github.ansonliao.selenium.annotations.URL;
 import com.github.ansonliao.selenium.annotations.browser.Chrome;
@@ -25,6 +26,7 @@ public class Test_LoginWithValidAccount {
     @Firefox
     @URL("http://the-internet.herokuapp.com/login")
     @Description("Login with valid account information should be passed")
+    @Video
     public void loginWithCorrectLoginInfo() {
         LoginPage loginPage = new LoginPage(getDriver());
         loginPage.inputUserName(CredentialUtils.getUserName());
@@ -37,6 +39,7 @@ public class Test_LoginWithValidAccount {
     @Test(groups = {"@SMOKE"}, dataProvider = "test1")
     @URL("http://the-internet.herokuapp.com/login")
     @Description("Demo for fail test case")
+    @Video
     public void loginWithWrongLoginInfo(String userName, String pwd) {
         LoginPage loginPage = new LoginPage(getDriver());
         loginPage.inputUserName(userName);

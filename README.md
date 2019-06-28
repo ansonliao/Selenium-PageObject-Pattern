@@ -7,20 +7,28 @@
 ## Run
 Run the test by command
 
+> Until now (2019-Jun-28), the latest version of ChromeDriver is  `76.0.3809.25`, but no corresponding Chrome
+> version is updated, so need to add ChromeDriver specified version, for example version `74.0.3729.6`
+
 ```bash
-mvn clean test -Dtest=MyTestRunner
+mvn clean test -Dtest=MyTestRunner -Dwdm.chromeDriverVersion=74.0.3729.6
 ```
 
 Test will
-1. run across `Chrome` , `Firefox`, and `PhantomJs`
+1. run across `Chrome` and `Firefox`
 2. download `chromddriver`, `geckodriver`, `phantomjsdriver` automatically
 
 
 ## Report
 1. please locate the HTML report from `target/ExentReports.html`
 2. Please locate the screenshot from `target/screenshots` if any test case failed, and the screenshot
+3. Placed the failure test case recording video at the folder `video`, this feature will be updated that attached the video to the testing report as some video recording custom need to clarify
 will be attached in the HTML testing report, it means that no need to check the screenshot from `target/screenshots` specially.
-3. Test step is logged in details
-4. Test group in the HTML testing report
-5. Test script author in the HTML testing report
-6. Test case's description logged in the HTML testing report
+4. Test step is logged in details
+5. Test group in the HTML testing report
+6. Test script author in the HTML testing report
+7. Test case's description logged in the HTML testing report
+
+
+## TODO
+Log the testing step with AOP, and the library is [AspectJ](https://www.eclipse.org/aspectj/).

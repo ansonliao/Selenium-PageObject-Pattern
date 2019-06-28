@@ -11,8 +11,6 @@
   },
   "firefox": {
     "cli_args": [
-      "--headless",
-      "--private"
     ]
   }
 }
